@@ -10,7 +10,7 @@ function weather (request, response){
             const searchedCity = data.find((city)=>city.lat == lat && city.lon == lon)
             console.log(searchedCity)
             if(!searchedCity){
-                response.json("Sorry no matching city found for " + request.query.value)
+                response.status(500).json("Sorry no matching city found for " + request.query.value)
             } else{
                 response.json(searchedCity.data)
             }
